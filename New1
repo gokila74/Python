@@ -1,0 +1,15 @@
+Train Model
+model.fit(x_train, y_train, epochs=3, batch_size=64, validation_split=0.2)
+
+# Evaluate Model
+loss, accuracy = model.evaluate(x_test, y_test)
+print("Test Accuracy:", accuracy)
+
+# Predict Sample Review
+sample_review = x_test[0].reshape(1, max_length)
+prediction = model.predict(sample_review)
+
+if prediction > 0.5:
+    print("Sentiment: Positive 😊")
+else:
+    print("Sentiment: Negative 😔")
